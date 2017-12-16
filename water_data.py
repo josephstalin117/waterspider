@@ -14,9 +14,9 @@ import os
 #     return response.text
 
 def log_in():
-    os.system("./home/user/login_bjut.sh")
+    os.system("/home/user/login_bjut.sh")
 def log_out():
-    os.system("./home/user/logout_bjut.sh")
+    os.system("/home/user/logout_bjut.sh")
 def get_data():
     url = "http://123.127.175.45:8082/ajax/GwtWaterHandler.ashx"
     data = {"Method": "SelectRealData"}
