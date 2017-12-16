@@ -4,15 +4,19 @@
 import requests
 import json
 from pprint import pprint
+import os
 
-def get_connect():
-    url = "https://lgn.bjut.edu.cn"
-    data = {"DDDDD": "S201761811", "upass": "2356002", "v46s": "1", "v6ip": "", "f4serip": "172.30.201.10",
-            "0MKKey": ""}
-    response = requests.post(url, data=data)
-    return response.text
+# def get_connect():
+#     url = "https://lgn.bjut.edu.cn"
+#     data = {"DDDDD": "S201761811", "upass": "2356002", "v46s": "1", "v6ip": "", "f4serip": "172.30.201.10",
+#             "0MKKey": ""}
+#     response = requests.post(url, data=data)
+#     return response.text
 
-
+def log_in():
+    os.system("./login_bjut.sh")
+def log_out():
+    os.system("./logout_bjut.sh")
 def get_data():
     url = "http://123.127.175.45:8082/ajax/GwtWaterHandler.ashx"
     data = {"Method": "SelectRealData"}
@@ -38,10 +42,11 @@ def data_save(data,save_file):
 
 
 if __name__ == '__main__':
+    log_in()
 #    res = get_connect()
     raw_data = get_data()
     # print(raw_data)
-
+    log_out()
     data = data_parser(raw_data)
     print(data)
     # data.join('\n')
