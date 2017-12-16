@@ -32,6 +32,7 @@ def data_parser(raw_data):
 
 if __name__ == '__main__':
     res = get_connect()
+    print("test")
     print(res)
     # raw_data = get_data()
     # print(raw_data)
