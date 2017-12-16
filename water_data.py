@@ -3,7 +3,7 @@
 
 import requests
 import json
-
+from pprint import pprint
 
 def get_connect():
     url = "https://lgn.bjut.edu.cn"
@@ -27,17 +27,30 @@ def data_parser(raw_data):
         siteNames = ['北京', '天津', '河北']
         if any(x in pop_dict['siteName'] for x in siteNames):
             data_list.append(pop_dict)
-    return data_list
+    data_str=''.join(str(e) for e in data_list)
+    return data_str
+
+def data_save(data,save_file):
+    f=open(save_file,'a')
+    f.write(data+ '\n')
+    f.close()
+
 
 
 if __name__ == '__main__':
-    res = get_connect()
-    print("test")
-    print(res)
-    print(res.encode('utf-8'))
-    # raw_data = get_data()
+#    res = get_connect()
+    raw_data = get_data()
     # print(raw_data)
 
-    # list = data_parser(raw_data)
+    data = data_parser(raw_data)
+    print(data)
+    # data.join('\n')
+    data_save(data,"waterdata.txt")
+
     # for i in list:
     # print(i)
+    # with open('ccc','w') as f:
+#     for i in article1:
+#         print(i, file=f)
+#         wr = csv.writer(f, quoting=csv.QUOTE_ALL)
+#         wr.writerow(mylist)
