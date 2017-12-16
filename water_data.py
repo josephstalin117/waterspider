@@ -34,6 +34,7 @@ if __name__ == '__main__':
     res = get_connect()
     print("test")
     print(res)
+    print(res.encode('utf-8'))
     # raw_data = get_data()
     # print(raw_data)
 
