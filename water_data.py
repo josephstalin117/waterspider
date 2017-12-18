@@ -33,8 +33,9 @@ def data_parser(raw_data):
 
 
 def data_save(data, save_file):
-    f = open(save_file, 'a')
-    f.write(data + '\n')
+    f = open(save_file,'a',encoding='utf-8')
+    result=data+'\n'
+    f.write(result)
     f.close()
 
 
