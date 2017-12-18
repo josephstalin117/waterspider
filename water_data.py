@@ -7,11 +7,11 @@ import os
 
 
 def log_in():
-    os.system("bash /home/user/login_bjut.sh")
+    os.system("bash /home/user/login_bjut.sh>/dev/null")
 
 
 def log_out():
-    os.system("bash /home/user/logout_bjut.sh")
+    os.system("bash /home/user/logout_bjut.sh>/dev/null")
 
 
 def get_data():
@@ -44,6 +44,6 @@ if __name__ == '__main__':
     raw_data = get_data()
     log_out()
     data = data_parser(raw_data)
-    #print(data)
-    data_save(data, "waterdata.txt")
+    print(data)
+    #data_save(data, "waterdata.txt")
 
